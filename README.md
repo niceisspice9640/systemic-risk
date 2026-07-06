@@ -1,7 +1,6 @@
 # Efficiency & Fragility: Measuring Whether Cyber Risk Has Outpaced Institutional Defense
  
-**Have cyberattacks and infrastructure disruptions across industries grown faster
-than the institutional and regulatory capacity meant to contain them?**
+**To what extent has the growth of cyberattacks and infrastructure disruptions across industries outpaced the growth of defensive and regulatory capacity?**
  
 This project answers that question empirically, across a 2015–2025 window, using
 three independent quantitative analyses drawn entirely from free, publicly
