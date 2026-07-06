@@ -17,25 +17,7 @@ downstream services — is a direct illustration of the concentration risk this
 project quantifies.
  
 ---
- 
-## The three analyses
- 
-Each lives in its own folder with a full README, reproducible pipeline, and both
-print-quality (300dpi) and interactive (Chart.js / HTML) figures.
- 
-| # | Folder | What it measures | Headline finding |
-|---|--------|------------------|------------------|
-| 1 | [`variable-1-cyberattack-trends/`](./variable-1-cyberattack-trends/) | Cyberattack incidence & sectoral distribution over time (EuRepoC) | Incident frequency rises across the window; a Feb-2023 inclusion-rule change is flagged and reported both raw and rule-adjusted so growth isn't overstated |
-| 2 | [`variable-2-cloud-concentration/`](./variable-2-cloud-concentration/) | Market concentration of cloud infrastructure (CR3 / HHI) | Top-3 provider share rose from ~51% (2017) to ~66% (2023); HHI up ~30.7% — measurable consolidation into fewer points of failure |
-| 3 | [`variable-3-cascade-heatmap/`](./variable-3-cascade-heatmap/) | Cross-sector spread of supply-chain / platform incidents (12 incidents × 8 sectors) | Mean sectors hit per incident rises from 3.17 to 4.5 across a mid-2023 demarcation; IT/Cloud is implicated in all 12 |
- 
-> The three are reported **side by side, not merged into a single composite score.**
-> Keeping them separate means each finding rests on its own transparent, auditable
-> source rather than on weighting choices that would be hard to defend.
- 
----
- 
-## Anchor cases
+ ## Anchor cases
  
 The quantitative work is grounded in three real infrastructure failures, each
 illustrating a distinct failure mode the analyses measure:
