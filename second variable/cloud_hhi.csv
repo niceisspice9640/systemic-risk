@@ -1,0 +1,9 @@
+year,aws_share,azure_share,gcp_share,cr3_combined,hhi,source_note
+2017,33,12,6,51,1269,Synergy Research Group (primary); Canalys (GCP confirmed); park.is compilation
+2018,33,13,7,53,1307,Synergy rate-of-change interpolation from Q1 2022 press release
+2019,33,15,8,56,1378,Synergy rate-of-change interpolation from Q1 2022 press release
+2020,33,17,8,58,1442,Synergy rate-of-change interpolation from Q1 2022 press release
+2021,33,19,9,61,1531,Synergy rate-of-change interpolation from Q1 2022 press release
+2022,33,21,9,63,1611,Synergy Research Group; businesstats.com (CR3 confirmed)
+2023,31,24,11,66,1658,AAG-IT citing Synergy; holori.com (GCP confirmed)
+2024,30,21,12,63,1485,Synergy Research Group Q4 2024 press release (primary) — Azure reclassification note applies
