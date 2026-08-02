@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>03 · Cross-Sector Cascade — The Fragility Gap</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">The Fragility Gap<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="v1-incidence.html">01 Incidence</a>
+      <a href="v2-concentration.html">02 Concentration</a>
+      <a href="v3-cascade.html" class="active">03 Cascade</a>
+      <a href="v4-capacity.html">04 Capacity</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" style="padding:64px 0 40px;">
+  <div class="wrap">
+    <p class="eyebrow">Measure 03 · Pressure</p>
+    <h1>How far a single failure spreads</h1>
+    <p class="hero-sub">When one platform or supply-chain failure hits, how many separate industries go down with it? And is that reach widening over time?</p>
+  </div>
+</section>
+
+<section style="padding-top:24px;">
+  <div class="wrap">
+    <div class="stat-row">
+      <div class="stat"><div class="n">3.17 → 4.5</div><div class="l">mean sectors hit, earlier vs. recent incidents</div></div>
+      <div class="stat"><div class="n">8/8</div><div class="l">every incident ran through IT / cloud services</div></div>
+      <div class="stat"><div class="n">12×8</div><div class="l">incidents × sectors, hand-coded</div></div>
+    </div>
+
+    <iframe class="embed-frame" src="assets/charts/cascade_standalone.html" style="height:1120px;" title="Interactive cross-sector cascade heatmap" loading="lazy"></iframe>
+
+    <div class="prose">
+      <h2>The constant beneath the comparison</h2>
+      <p>The eye goes to the before-and-after split, but the sturdier finding is the column that's filled every single time: every incident, no matter the year or how far it spread, ran through the information-technology-and-cloud layer. That's not a coincidence — it's the shared substrate every other industry now sits on top of, and it ties this measure straight back to the concentration trend before it.</p>
+      <p>Read the widening reach carefully. The rise leans on two unusually broad recent incidents — MOVEit and CrowdStrike — and both trace back to a zero-day flaw and a faulty update, not to any AI technique. The mid-2023 line marks <em>when</em> the widest cascades show up, not a cause that produced them. And the coding is deliberately conservative: a cell is filled only where public reporting confirms real impact, so sparse rows like Log4j or Okta reflect high cascade <em>potential</em> with limited documented <em>realized</em> impact — a gap the yes-or-no coding keeps visible on purpose.</p>
+    </div>
+
+    <div class="pager">
+      <a href="v2-concentration.html"><span class="lbl">Prev · Measure 02</span>← Concentration</a>
+      <a href="v4-capacity.html"><span class="lbl">Next · Measure 04</span>Institutional Response →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot"><div class="wrap">Data: hand-compiled from CISA, government advisories, Mandiant / CrowdStrike / Emsisoft analyses, and major-press reporting per incident.</div></footer>
+</body>
+</html>
