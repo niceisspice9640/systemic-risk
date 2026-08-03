@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>03 · Cross-Sector Cascade — The Fragility Gap</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+/* ---- inlined cascade heatmap, scoped under #cascade-embed ---- */
+
+  #cascade-embed{
+    --ink:#EEF4FF; --fill:#2f6f8f; --fill-hi:#00C9A7; --empty:#12233f;
+    --demarc:#E8875F; --paper:#0A1628; --muted:#6A88AA; --line:#1A3050;
+  }
+  #cascade-embed * {box-sizing:border-box;}
+  #cascade-embed {
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    padding:8px 0 0;
+  }
+  #cascade-embed .wrap {max-width:1060px;margin:0 auto;}
+  #cascade-embed h1 {font-size:1.4rem;margin:0 0 4px;letter-spacing:-0.01em;}
+  #cascade-embed .sub {color:var(--muted);font-size:.86rem;margin:0 0 22px;max-width:760px;line-height:1.45;}
+  #cascade-embed .grid-scroll {overflow-x:auto;}
+  #cascade-embed table {border-collapse:separate;border-spacing:3px;margin:0 auto;}
+  #cascade-embed th.sector {
+    font-size:.72rem;font-weight:600;color:var(--ink);text-align:center;
+    vertical-align:bottom;padding:0 2px 8px;line-height:1.15;width:76px;
+  }
+  #cascade-embed th.rowhead {
+    text-align:right;font-size:.76rem;font-weight:600;padding-right:12px;
+    white-space:nowrap;color:var(--ink);
+  }
+  #cascade-embed th.rowhead .date {display:block;font-weight:400;color:var(--muted);font-size:.68rem;}
+  #cascade-embed td.cell {
+    width:76px;height:44px;border-radius:5px;cursor:default;
+    transition:transform .08s ease, box-shadow .08s ease;position:relative;
+  }
+  #cascade-embed td.cell.on {background:var(--fill);}
+  #cascade-embed td.cell.off {background:var(--empty);}
+  #cascade-embed td.cell.on:hover {background:var(--fill-hi);transform:scale(1.04);box-shadow:0 3px 10px rgba(42,77,105,.35);z-index:3;}
+  #cascade-embed td.breadth {font-size:.74rem;color:var(--muted);padding-left:10px;white-space:nowrap;}
+  #cascade-embed td.breadth b {color:var(--ink);}
+  #cascade-embed .demarc-row td {padding:0;}
+  #cascade-embed .demarc-line {
+    height:3px;background:var(--demarc);border-radius:2px;position:relative;margin:3px 0;
+  }
+  #cascade-embed .demarc-label {
+    color:var(--demarc);font-size:.72rem;font-weight:700;padding:2px 0 2px 4px;line-height:1.3;
+  }
+  #cascade-embed .legend {display:flex;gap:20px;align-items:center;margin:22px 0 0;font-size:.8rem;color:var(--muted);flex-wrap:wrap;}
+  #cascade-embed .swatch {display:inline-block;width:15px;height:15px;border-radius:3px;vertical-align:-2px;margin-right:6px;}
+  #cascade-embed .stats {display:flex;gap:26px;flex-wrap:wrap;margin:26px 0 0;padding:16px 18px;background:#12233f;border-radius:10px;border:1px solid var(--line);}
+  #cascade-embed .stat .n {font-size:1.5rem;font-weight:700;color:var(--fill);line-height:1;}
+  #cascade-embed .stat .l {font-size:.72rem;color:var(--muted);margin-top:4px;max-width:150px;line-height:1.3;}
+  #cascade-embed .tip {
+    position:fixed;pointer-events:none;background:var(--ink);color:#fff;font-size:.74rem;
+    padding:7px 10px;border-radius:7px;max-width:240px;line-height:1.35;opacity:0;
+    transition:opacity .1s ease;z-index:50;box-shadow:0 6px 20px rgba(0,0,0,.25);
+  }
+  #cascade-embed .note {font-size:.7rem;color:var(--muted);margin-top:24px;line-height:1.5;border-top:1px solid var(--line);padding-top:14px;}
+
+#cascade-embed{font-family:'Space Grotesk',sans-serif;}
+#cascade-embed .wrap{max-width:none;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">Home</a>
+    <div class="nav-links">
+      <a href="v1-incidence.html">01 Incidence</a>
+      <a href="v2-concentration.html">02 Concentration</a>
+      <a href="v3-cascade.html" class="active">03 Cascade</a>
+      <a href="v4-capacity.html">04 Capacity</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" style="padding:64px 0 40px;">
+  <div class="wrap">
+    <p class="eyebrow">Measure 03 · Pressure</p>
+    <h1>How far a single failure spreads</h1>
+    <p class="hero-sub">When one platform or supply-chain failure hits, how many separate industries go down with it? And is that reach widening over time?</p>
+  </div>
+</section>
+
+<section style="padding-top:24px;">
+  <div class="wrap">
+    <div class="stat-row">
+      <div class="stat"><div class="n">3.17 &rarr; 4.5</div><div class="l">mean sectors hit, earlier vs. recent incidents</div></div>
+      <div class="stat"><div class="n">8/8</div><div class="l">every incident ran through IT / cloud services</div></div>
+      <div class="stat"><div class="n">12&times;8</div><div class="l">incidents &times; sectors, hand-coded</div></div>
+    </div>
+
+    <div class="chart-card">
+      <div id="cascade-embed">
+<div class="wrap">
+  <h1>Cross-sector cascade footprint, 2020–2026</h1>
+  <p class="sub">Each row is a major supply-chain or platform incident; each column a sector. A cell is filled
+  only where public reporting confirms meaningful sector-level impact — a deliberately conservative rule that
+  under-counts rather than over-counts. Hover a filled cell for the sourcing basis.</p>
+
+  <div class="grid-scroll"><table id="heat"></table></div>
+
+  <div class="legend">
+    <span><span class="swatch" style="background:var(--fill)"></span>Documented sector-level impact</span>
+    <span><span class="swatch" style="background:var(--empty)"></span>No documented sector-level cascade</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n" id="s-pre">–</div><div class="l">mean sectors hit, pre-AI era (6 events)</div></div>
+    <div class="stat"><div class="n" id="s-ai">–</div><div class="l">mean sectors hit, AI era (6 events)</div></div>
+    <div class="stat"><div class="n">8/8</div><div class="l">IT / Cloud column filled for every event</div></div>
+  </div>
+
+  <p class="note"><b>Reading the demarcation.</b> The line marks mid-2023, when adversarial AI tooling
+  (WormGPT/FraudGPT) became publicly available. Incidents below the line show broader footprints on average,
+  but this is illustrative, not causal: the widest AI-era rows (MOVEit, CrowdStrike) stem from a zero-day and a
+  faulty update respectively — not from AI. Sparse rows (Log4j, Okta, LastPass) reflect high cascade
+  <i>potential</i> with limited documented <i>realized</i> impact. Sources: CISA, government advisories,
+  Mandiant / CrowdStrike / Emsisoft analyses, and major-press reporting per incident.</p>
+</div>
+
+<div class="tip" id="tip"></div>
+<div class="tip" id="tip"></div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h2>The constant beneath the comparison</h2>
+      <p>The eye goes to the before-and-after split, but the sturdier finding is the column that's filled every single time: every incident, no matter the year or how far it spread, ran through the information-technology-and-cloud layer. That's not a coincidence — it's the shared substrate every other industry now sits on top of, and it ties this measure straight back to the concentration trend before it.</p>
+      <p>Read the widening reach carefully. The rise leans on two unusually broad recent incidents — MOVEit and CrowdStrike — and both trace back to a zero-day flaw and a faulty update, not to any AI technique. The mid-2023 line marks <em>when</em> the widest cascades show up, not a cause that produced them. And the coding is deliberately conservative: a cell is filled only where public reporting confirms real impact, so sparse rows like Log4j or Okta reflect high cascade <em>potential</em> with limited documented <em>realized</em> impact — a gap the yes-or-no coding keeps visible on purpose.</p>
+    </div>
+
+    <div class="pager">
+      <a href="v2-concentration.html"><span class="lbl">Prev · Measure 02</span>← Concentration</a>
+      <a href="v4-capacity.html"><span class="lbl">Next · Measure 04</span>Institutional Response →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot"><div class="wrap">Data: hand-compiled from CISA, government advisories, Mandiant / CrowdStrike / Emsisoft analyses, and major-press reporting per incident.</div></footer>
+
+<script>
+
+const SECTORS = ["Financial","Healthcare","Telecom","Government","Education","Logistics","Energy_Utilities","IT_Cloud"];
+const LABELS  = ["Financial Services","Healthcare","Telecom","Government","Education","Logistics / Supply Chain","Energy / Utilities","IT / Cloud Services"];
+
+// event, date, era, per-sector 0/1, and short per-cell source notes for filled cells
+const DATA = [
+  {e:"SolarWinds", d:"Dec 2020", era:"pre", v:[0,1,0,1,0,0,1,1],
+   why:{Healthcare:"HHS/OCR warned the sector",Government:"9 federal agencies incl. Treasury, DHS, Pentagon",Energy_Utilities:"Dept of Energy; grid concern",IT_Cloud:"Microsoft, Cisco, Intel, VMware compromised"}},
+  {e:"Microsoft Exchange (ProxyLogon)", d:"Mar 2021", era:"pre", v:[1,1,1,1,1,0,1,1],
+   why:{Financial:"banks & credit unions (S-RM)",Healthcare:"disease researchers, health orgs",Telecom:"telecom providers",Government:"local govts, police/fire",Education:"universities",Energy_Utilities:"public utilities",IT_Cloud:"Exchange infrastructure itself"}},
+  {e:"Kaseya VSA", d:"Jul 2021", era:"pre", v:[0,0,0,1,1,1,0,1],
+   why:{Government:"a town in Maryland",Education:"11 NZ schools",Logistics:"Coop (800 stores closed); Swedish rail",IT_Cloud:"~60 MSPs (the mechanism)"}},
+  {e:"Log4j (Log4Shell)", d:"Dec 2021", era:"pre", v:[0,0,0,1,0,0,0,1],
+   why:{Government:"Belgian Ministry of Defense breached",IT_Cloud:"AWS/Azure/GCP/VMware; ~100M+ devices"}},
+  {e:"LastPass", d:"Aug 2022", era:"pre", v:[0,0,0,0,0,0,0,1],
+   why:{IT_Cloud:"source-code + vault-backup theft"}},
+  {e:"Okta (Lapsus$)", d:"Oct 2022", era:"pre", v:[0,0,0,0,0,0,0,1],
+   why:{IT_Cloud:"identity provider; Cloudflare/BeyondTrust targeted (limited realized impact)"}},
+  {e:"3CX", d:"Mar 2023", era:"ai", v:[1,0,1,1,0,0,0,1],
+   why:{Financial:"downstream payload hit crypto firms",Telecom:"VoIP/phone-system software",Government:"defense-sector targeting; NHS in customer base",IT_Cloud:"comms software (the mechanism)"}},
+  {e:"MOVEit Transfer", d:"Jun 2023", era:"ai", v:[1,1,1,1,1,1,1,1],
+   why:{Financial:"banks, insurers",Healthcare:"~20% of victims",Telecom:"Ofcom, ComReg",Government:"DoE, state DMVs, TfL",Education:"~39% of victims",Logistics:"British Airways, Aer Lingus",Energy_Utilities:"Shell, US DoE",IT_Cloud:"the MFT platform itself"}},
+  {e:"Change Healthcare", d:"Feb 2024", era:"ai", v:[1,1,0,0,0,0,0,1],
+   why:{Financial:"claims/payment halt; $6.3B claims drop in 3wk",Healthcare:"largest US healthcare breach; 94% of hospitals",IT_Cloud:"centralized clearinghouse platform"}},
+  {e:"CrowdStrike", d:"Jul 2024", era:"ai", v:[1,1,1,1,0,1,1,1],
+   why:{Financial:"banks worldwide ($1.15B)",Healthcare:"hardest hit ($1.94B)",Telecom:"telecom IT ops",Government:"911/public safety, federal agencies",Logistics:"16,896 flights cancelled; shipping",Energy_Utilities:"gas stations, utilities",IT_Cloud:"faulty security update (the mechanism)"}},
+  {e:"Blue Yonder", d:"Nov 2024", era:"ai", v:[0,0,0,0,0,1,0,1],
+   why:{Logistics:"warehouse mgmt; Morrisons, Sainsbury's, P&G; Starbucks scheduling",IT_Cloud:"the SaaS platform"}},
+  {e:"Canvas/Instructure", d:"May 2026", era:"ai", v:[0,0,0,1,1,0,0,1],
+   why:{Government:"US Dept of Ed / FSA engaged; FERPA review",Education:"8,809 institutions; 41% of NA higher-ed",IT_Cloud:"the LMS platform"}},
+];
+
+const tbl = document.getElementById("heat");
+const tip = document.getElementById("tip");
+
+// header row
+let head = "<tr><th class='rowhead'></th>";
+LABELS.forEach(l => head += `<th class='sector'>${l}</th>`);
+head += "<th class='breadth'></th></tr>";
+tbl.innerHTML = head;
+
+const firstAi = DATA.findIndex(r => r.era === "ai");
+
+DATA.forEach((r, i) => {
+  if (i === firstAi) {
+    const dr = tbl.insertRow();
+    const cell = dr.insertCell();
+    cell.colSpan = SECTORS.length + 2;
+    cell.innerHTML = `<div class="demarc-line"></div><div class="demarc-label">AI-enabled adversarial tooling proliferates — WormGPT / FraudGPT, mid-2023</div>`;
+    dr.className = "demarc-row";
+  }
+  const tr = tbl.insertRow();
+  const th = document.createElement("th");
+  th.className = "rowhead";
+  th.innerHTML = `${r.e}<span class="date">${r.d}</span>`;
+  tr.appendChild(th);
+
+  let breadth = 0;
+  SECTORS.forEach((s, j) => {
+    const td = tr.insertCell();
+    const on = r.v[j] === 1;
+    td.className = "cell " + (on ? "on" : "off");
+    if (on) {
+      breadth++;
+      const note = r.why[s] || "documented impact";
+      td.addEventListener("mousemove", ev => {
+        tip.style.opacity = 1;
+        tip.innerHTML = `<b>${r.e} · ${LABELS[j]}</b><br>${note}`;
+        tip.style.left = Math.min(ev.clientX + 14, window.innerWidth - 250) + "px";
+        tip.style.top  = (ev.clientY + 14) + "px";
+      });
+      td.addEventListener("mouseleave", () => tip.style.opacity = 0);
+    }
+  });
+  const b = tr.insertCell();
+  b.className = "breadth";
+  b.innerHTML = `<b>${breadth}</b>/8`;
+});
+
+// stats
+const mean = arr => (arr.reduce((a,b)=>a+b,0)/arr.length);
+const preB = DATA.filter(r=>r.era==="pre").map(r=>r.v.reduce((a,b)=>a+b,0));
+const aiB  = DATA.filter(r=>r.era==="ai").map(r=>r.v.reduce((a,b)=>a+b,0));
+document.getElementById("s-pre").textContent = mean(preB).toFixed(2);
+document.getElementById("s-ai").textContent  = mean(aiB).toFixed(2);
+
+</script>
+</body>
+</html>
